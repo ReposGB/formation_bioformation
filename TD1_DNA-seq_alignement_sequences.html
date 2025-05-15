@@ -2879,8 +2879,8 @@ bioinformatique d’alignement de séquence</h2>
 <p>Ce pipeline est basé sur l’utilisation de <strong>BWA</strong>.</p>
 <p>Il permet de faire le contrôle qualité des séquences, et de les
 aligner sur le génome de référence .</p>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-c9884374f2c12808e2ae" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-c9884374f2c12808e2ae">{"x":{"diagram":"\ndigraph NGS_pipeline {\n  graph [rankdir = LR, layout = dot, margin=0, nodesep=0.4, ranksep=0.4]\n\n  node [shape = box, style = filled, fontname = Helvetica, margin=0.1]\n\n  fastq     [label = \"Fichier FASTQ\", fillcolor = red]\n  fastqc    [label = \"FastQC\\n(Qualité brute)\", fillcolor = lightblue]\n  trim      [label = \"Trimmomatic\\n(Nettoyage lectures)\", fillcolor = lightblue]\n  bwa       [label = \"BWA\\n(Alignement sur génome)\", fillcolor = lightblue]\n  bam       [label = \"Fichier BAM\\n(Sortie alignée)\", fillcolor = green]\n  ref       [label = \"Génome de référence\\nhg38\", fillcolor = grey90, shape = ellipse, style = filled]\n\n  fastq -> fastqc\n  fastqc -> trim\n  trim -> bwa\n  bwa -> bam\n  ref -> bwa [style=dashed, label = \"indexé\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-7b46a17cc7ed24924ec9" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-7b46a17cc7ed24924ec9">{"x":{"diagram":"\ndigraph NGS_pipeline {\n  graph [rankdir = LR, layout = dot, margin=0, nodesep=0.4, ranksep=0.4]\n\n  node [shape = box, style = filled, fontname = Helvetica, margin=0.1]\n\n  fastq     [label = \"Fichier FASTQ\", fillcolor = red]\n  fastqc    [label = \"FastQC\\n(Qualité brute)\", fillcolor = lightblue]\n  trim      [label = \"Trimmomatic\\n(Nettoyage lectures)\", fillcolor = lightblue]\n  bwa       [label = \"BWA\\n(Alignement sur génome)\", fillcolor = lightblue]\n  bam       [label = \"Fichier BAM\\n(Sortie alignée)\", fillcolor = green]\n  ref       [label = \"Génome de référence\\nhg38\", fillcolor = grey90, shape = ellipse, style = filled]\n\n  fastq -> fastqc\n  fastqc -> trim\n  trim -> bwa\n  bwa -> bam\n  ref -> bwa [style=dashed, label = \"indexé\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="contrôle-qualité-fastqc" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Contrôle qualité
@@ -2967,9 +2967,9 @@ vers <code>./scripts/03.bwa_align_all.sh</code>.</p></li>
 fichiers générés.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li><p>Ajoutez le chemin du génome de référence (argument du programme
-<code>bwa</code>) à la place de <code>XXX</code> dans ce
-script.</p></li>
+<li><p>Ajoutez le l’option <code>-M</code> suivie du chemin du génome de
+référence (argument du programme <code>bwa</code>) à la place de
+<code>XXX</code> dans ce script.</p></li>
 <li><p>Exécuter l’alignement</p></li>
 <li><p>Faire un point qualité rapide sur les fichiers
 <strong>BAM</strong> avec <code>samtools flagstat</code></p></li>
@@ -3048,14 +3048,14 @@ variants et les séquences</h2>
 <strong>IGV</strong>.</p>
 <p><strong>TD:</strong></p>
 <ol start="0" style="list-style-type: decimal">
-<li>Installer IGV</li>
+<li>Installer IGV: <a href="https://igv.org/doc/desktop/#DownloadPage/" class="uri">https://igv.org/doc/desktop/#DownloadPage/</a></li>
 <li>Télécharger</li>
 </ol>
 <ul>
 <li>Les fichiers BAM (<code>03-ALIGN/*.marked_duplicates.RG.bam</code>)
 et BAI (<code>03-ALIGN/*.marked_duplicates.RG.bai</code>).</li>
 <li>Le fichier <strong>VCF</strong> final avec l’ensemble des
-échantillons (<code>05.varscan.multi.vcf</code>).</li>
+échantillons (<code>50.varscan.multi.constitutionnel.vcf</code>).</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li>Exécuter IGV et sélectionner le génome
