@@ -2879,8 +2879,8 @@ bioinformatique d’alignement de séquence</h2>
 <p>Ce pipeline est basé sur l’utilisation de <strong>BWA</strong>.</p>
 <p>Il permet de faire le contrôle qualité des séquences, et de les
 aligner sur le génome de référence .</p>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-7b46a17cc7ed24924ec9" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-7b46a17cc7ed24924ec9">{"x":{"diagram":"\ndigraph NGS_pipeline {\n  graph [rankdir = LR, layout = dot, margin=0, nodesep=0.4, ranksep=0.4]\n\n  node [shape = box, style = filled, fontname = Helvetica, margin=0.1]\n\n  fastq     [label = \"Fichier FASTQ\", fillcolor = red]\n  fastqc    [label = \"FastQC\\n(Qualité brute)\", fillcolor = lightblue]\n  trim      [label = \"Trimmomatic\\n(Nettoyage lectures)\", fillcolor = lightblue]\n  bwa       [label = \"BWA\\n(Alignement sur génome)\", fillcolor = lightblue]\n  bam       [label = \"Fichier BAM\\n(Sortie alignée)\", fillcolor = green]\n  ref       [label = \"Génome de référence\\nhg38\", fillcolor = grey90, shape = ellipse, style = filled]\n\n  fastq -> fastqc\n  fastqc -> trim\n  trim -> bwa\n  bwa -> bam\n  ref -> bwa [style=dashed, label = \"indexé\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-c815baf0a1297f492724" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-c815baf0a1297f492724">{"x":{"diagram":"\ndigraph NGS_pipeline {\n  graph [rankdir = LR, layout = dot, margin=0, nodesep=0.4, ranksep=0.4]\n\n  node [shape = box, style = filled, fontname = Helvetica, margin=0.1]\n\n  fastq     [label = \"Fichier FASTQ\", fillcolor = red]\n  fastqc    [label = \"FastQC\\n(Qualité brute)\", fillcolor = lightblue]\n  trim      [label = \"Trimmomatic\\n(Nettoyage lectures)\", fillcolor = lightblue]\n  bwa       [label = \"BWA\\n(Alignement sur génome)\", fillcolor = lightblue]\n  bam       [label = \"Fichier BAM\\n(Sortie alignée)\", fillcolor = green]\n  ref       [label = \"Génome de référence\\nhg38\", fillcolor = grey90, shape = ellipse, style = filled]\n\n  fastq -> fastqc\n  fastqc -> trim\n  trim -> bwa\n  bwa -> bam\n  ref -> bwa [style=dashed, label = \"indexé\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="contrôle-qualité-fastqc" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Contrôle qualité
@@ -3040,6 +3040,7 @@ et l’utiliser pour faire l’appel de variants sur les fichiers
 <li>Spécification de la fréquence minimale du variant (VAF)
 (<strong>f=0.2</strong>)</li>
 <li>Spécification du filtre biais de brin (strand bias)</li>
+<li>Rajouter l’option <code>-variants</code></li>
 </ul>
 <div id="visualiser-les-variants-et-les-séquences" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Visualiser les
